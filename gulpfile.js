@@ -41,16 +41,14 @@ const paths = {
 
 // Run at start of project
 function start() {
-  return gulp
-    .src("*.js", { read: false })
-    .pipe(
-      plugins.shell([
-        "mkdir -p src src/images src/svg src/fonts src/styles  src/scripts src/scripts/vendors src/pages src/templates/partials",
-        "mkdir -p src/styles/0-helpers src/styles/1-plugins src/styles/2-base src/styles/3-layout src/styles/4-modules src/styles/5-templates",
-        "touch src/index.html src/styles/main.scss src/scripts/app.js",
-        "touch src/styles/0-helpers/_0-helpers.scss src/styles/1-plugins/_1-plugins.scss src/styles/2-base/_2-base.scss src/styles/3-layout/_3-layout.scss src/styles/4-modules/_4-modules.scss src/styles/5-templates/_5-templates.scss",
-      ]),
-    );
+  return gulp.src("*.js", { read: false }).pipe(
+    plugins.shell([
+      "mkdir -p src src/images src/svg src/fonts src/styles  src/scripts src/scripts/vendors src/pages src/templates/partials",
+      "mkdir -p src/styles/0-helpers src/styles/1-plugins src/styles/2-base src/styles/3-layout src/styles/4-modules src/styles/5-templates",
+      // "touch src/data.json src/pages/index.njk src/templates/layout.njk src/styles/main.scss src/scripts/app.js",
+      // "touch src/styles/0-helpers/_0-helpers.scss src/styles/1-plugins/_1-plugins.scss src/styles/2-base/_2-base.scss src/styles/3-layout/_3-layout.scss src/styles/4-modules/_4-modules.scss src/styles/5-templates/_5-templates.scss",
+    ]),
+  );
 }
 
 // Get Front Matter Data
