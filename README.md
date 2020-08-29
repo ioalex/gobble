@@ -19,6 +19,7 @@ Credits to [cferdinandi's gulp-boilerplate](https://github.com/cferdinandi/gulp-
 
 - Nunjucks - to modularise HTML allowing for reusability.
 - SASS - to write clean, easy and less CSS.
+- Gulp - to run tasks!
 - Prettier - to quickly format files.
 - ESLint - to find and fix JavaScript errors.
 - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) - to follow a mostly reasonable approach to JS.
