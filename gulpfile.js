@@ -1,5 +1,6 @@
 // Initialize modules
 const fs = require("fs");
+const del = require("del");
 const gulp = require("gulp");
 const { src, dest, watch, series, parallel } = require("gulp");
 const fm = require("front-matter");
@@ -174,6 +175,13 @@ function browserSyncTask() {
   watch(paths.dist).on("change", browserSync.reload);
 }
 
+// Delete Build
+function deleteBuildTask() {
+  (async () => {
+    await del([paths.dist]);
+  })();
+}
+
 // Run at beginning of project
 exports.start = series(createSrcTask, copyResourcesTask);
 
@@ -203,3 +211,5 @@ exports.build = series(
   svgTask,
   fontTask,
 );
+
+exports.clean = deleteBuildTask;

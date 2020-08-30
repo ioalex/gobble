@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp start",
     "build": "gulp build",
+    "clean": "gulp clean",
     "watch": "gulp watch",
     "cache": "gulp cache",
     "html": "gulp html",
