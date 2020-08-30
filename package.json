@@ -5,7 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp start"
+    "start": "gulp start",
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "cache": "gulp cache",
+    "html": "gulp html",
+    "style": "gulp style",
+    "script": "gulp html",
+    "image": "gulp html",
+    "svg": "gulp svg",
+    "font": "gulp font"
   },
   "keywords": [],
   "author": {

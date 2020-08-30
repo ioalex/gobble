@@ -40,15 +40,17 @@ const paths = {
 };
 
 // Run at start of project
-function start() {
-  return gulp
-    .src("*.js", { read: false })
-    .pipe(
-      plugins.shell([
-        "mkdir -p src src/images src/svg src/fonts ",
-        "cp ./resources/* ./src",
-      ]),
-    );
+function createSrcTask() {
+  return gulp.src("*.js", { read: false }).pipe(
+    plugins.shell([
+      "mkdir -p src src/images src/svg src/fonts",
+      // "mv resources src",
+    ]),
+  );
+}
+
+function copyResourcesTask() {
+  return src("./resources/**").pipe(dest(paths.src));
 }
 
 // Get Front Matter Data
@@ -157,7 +159,7 @@ function cacheBustTask() {
 function watchTask() {
   watch(
     [paths.srcSCSS, paths.srcJS, paths.srcHTML],
-    parallel(scssTask, jsTask, htmlTask),
+    parallel(scssTask, jsTask, series(nunjucksTask, htmlTask)),
   );
 }
 
@@ -173,11 +175,12 @@ function browserSyncTask() {
 }
 
 // Run at beginning of project
-exports.start = start;
+exports.start = series(createSrcTask, copyResourcesTask);
 
-exports.nunjucks = series(nunjucksTask, htmlTask);
+// exports.nunjucks = series(nunjucksTask, htmlTask);
+// exports.html = htmlTask;
+exports.html = series(nunjucksTask, htmlTask);
 
-exports.html = htmlTask;
 exports.style = scssTask;
 exports.script = jsTask;
 exports.image = ImageTask;
