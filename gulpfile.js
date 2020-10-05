@@ -39,20 +39,6 @@ const paths = {
   distFonts: "dist/fonts",
 };
 
-// Run at start of project
-function createSrcTask() {
-  return gulp.src("*.js", { read: false }).pipe(
-    plugins.shell([
-      "mkdir -p src src/images src/svg src/fonts",
-      // "mv resources src",
-    ]),
-  );
-}
-
-function copyResourcesTask() {
-  return src("./resources/**").pipe(dest(paths.src));
-}
-
 // Get Front Matter Data
 function getFrontMatterData(file) {
   const content = fm(String(file.contents));
@@ -173,9 +159,6 @@ function browserSyncTask() {
   // watch(paths.dist).on("change", cacheBustTask);
   watch(paths.dist).on("change", browserSync.reload);
 }
-
-// Run at beginning of project
-exports.start = series(createSrcTask, copyResourcesTask);
 
 // exports.nunjucks = series(nunjucksTask, htmlTask);
 // exports.html = htmlTask;
