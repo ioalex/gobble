@@ -73,7 +73,7 @@ function nunjucksTask() {
 // Build dist HTML
 function htmlTask() {
   return src(paths.srcHTML)
-    .pipe(plugins.htmlhint())
+    .pipe(plugins.htmlhint(".htmlhintrc"))
     .pipe(plugins.htmlhint.failAfterError())
     .pipe(
       plugins.htmlmin({
