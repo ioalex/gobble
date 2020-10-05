@@ -1,0 +1,10 @@
+{
+  "**/*.js": [
+      "npm run eslint:fix",
+      "npm run prettier"
+    ],
+  "**/*.scss": [
+      "npm run stylelint:fix",
+      "npm run prettier"
+    ],
+}

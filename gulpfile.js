@@ -171,10 +171,7 @@ exports.font = fontTask;
 exports.cache = cacheBustTask;
 exports.watch = parallel(watchTask, browserSyncTask);
 
-exports.default = series(
-  parallel(nunjucksTask, scssTask, jsTask),
-  watchTask,
-);
+exports.default = series(parallel(nunjucksTask, scssTask, jsTask), watchTask);
 exports.build = series(
   nunjucksTask,
   htmlTask,

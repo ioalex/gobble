@@ -1,4 +1,3 @@
-# Ignore artifacts:
 dist
 node_modules
 src/styles/1-plugins/**
