@@ -144,7 +144,7 @@ function cacheBustTask() {
 // Watch task
 function watchTask() {
   watch(
-    [paths.srcSCSS, paths.srcJS, paths.srcHTML],
+    [paths.srcSCSS, paths.srcJS, paths.srcPages, paths.srcTemplates],
     parallel(scssTask, jsTask, series(nunjucksTask, htmlTask)),
   );
 }
@@ -160,10 +160,8 @@ function browserSyncTask() {
   watch(paths.dist).on("change", browserSync.reload);
 }
 
-// exports.nunjucks = series(nunjucksTask, htmlTask);
-// exports.html = htmlTask;
-exports.html = series(nunjucksTask, htmlTask);
-
+exports.nunjucks = series(nunjucksTask, htmlTask);
+exports.html = htmlTask;
 exports.style = scssTask;
 exports.script = jsTask;
 exports.image = ImageTask;
