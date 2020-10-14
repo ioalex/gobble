@@ -66,6 +66,9 @@ Please ensure that you have the following dependencies installed:
 
 ### Installation
 
+Note: A CLI tool is in development to initialize a new Gobble project with one command.
+See [create-gobble-app](https://github.com/ioalex/create-gobble-app) for more details.
+
 Clone the repository in your project folder:
 
 ```sh
